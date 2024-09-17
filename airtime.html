@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airtime page</title>
+    <link rel="stylesheet" href="css/css/all.css">
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: sans-serif;
+            padding: 0px 10px 0px 10px;
+            background: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            min-height: 100vh;
+            width: 100%;
+            margin: auto;
+            padding: 1px;
+        }
+
+        header {
+            margin-bottom: 10px;
+            margin-top: 0px;
+            display: flex;
+            justify-content: space-between;
+            background: white;
+            width: 100%;
+            padding: 15px;
+        }
+
+        header a {
+            font-size: 12px;
+            text-decoration: none;
+            color: #696969;
+        }
+
+        header  .history {
+            color: #12a963;
+        }
+
+        form .fa {
+            text-align: right;
+            color: #696969;
+        }
+
+        form {
+            width: 100%;
+        }
+
+         label {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-bottom: 0px;
+            font-size: 13px;
+            color: #000000;
+        }
+
+        form input {
+            border: 1px solid #e4e4e42b;
+            padding: 13px;
+            background: #fcfcfc;
+            border-radius: 10px;
+            margin: 0px 0px 10px 0px;
+            width: 510px;
+        }
+
+        form ::placeholder {
+            font-size: 11px;
+        }
+
+         h6 {
+            font-weight: lighter;
+            color: #181818;
+            margin-bottom: 15px;
+            text-align: start;
+            font-size: 12px;
+        }
+
+        .form-con {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            background-color: white;
+            padding: 15px;
+            border-radius: 15px;
+        }
+
+        .slideshow {
+            overflow: hidden;
+            margin-bottom: 20px;
+            width: 80%;
+        }
+
+        .slideshow figure {
+            position: relative;
+            width: 500%;
+            animation: 20s slider infinite;
+        }
+
+        .slideshow figure img {
+            float: left;
+            width: 20%;
+            border-radius: 15px;
+            height: 160px;
+        }
+
+        .top-up {
+            background: white;
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 15px;
+            display: flex;
+            flex-flow: column;
+            width: 100%;
+        }
+
+        .top {
+            text-align: center;
+            margin-left: 10px;
+            width: 30%;
+            font-size: 14px;
+        }
+
+         .top-up .box-con {
+            display: flex;
+            flex-flow: row wrap;
+            gap: 5px;
+            justify-content: center;
+            /* margin-top: 0px; */
+            width: 100%;
+        }
+
+        .top-up .box-con .box {
+            background: #fafafa;
+            border-radius: 10px;
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+            width: 100px;
+        }
+
+        .top-up .box-con .box:hover {
+            cursor: pointer;
+            filter: brightness(95%);
+        }
+
+        .top-up .box-con .box h6 {
+            background: #13fa7b11;
+            width: 100%;
+            padding: 3px 3px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            color: #4acb91;
+            font-size: 9px;
+        }
+
+        .top-up .box-con .box h6 .fa {
+            color: #4acb91;
+            font-size: 7px;
+        }
+
+        .top-up .box-con .box span {
+            font-size: 13px;
+            padding-bottom: 5px;
+        }
+
+        .top-up .box-con .box span .fa {
+            font-size: 11px;
+            color: #181818;
+        }
+
+        .top-up .box-con .box p {
+            font-size: 11px;
+            letter-spacing: 1px;
+            padding-bottom: 10px;
+            color: #adadad;
+        }
+
+        .top-up .box-con .box p .fa {
+            color: #adadad;
+        }
+
+        .amount {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-flow: row wrap;
+            margin-top: 20px;
+            z-index: 1;
+            transition: all 1s ease-in-out;
+            width: 100%;
+        }
+
+        .amount span {
+            display: flex;
+            align-items: center;
+            width: 70%;
+        }
+
+        .amount.show-amount-index {
+            z-index: -1;
+        }
+
+        .amount input {
+            width: 100%;
+            padding: 10px;
+            border-bottom: 1px solid #e4e4e4;
+            border-top: none;
+            background: white;
+        }
+
+
+        .amount ::placeholder {
+            font-size: 16px;
+            color: #9c9c9c;
+        }
+
+        .amount .fa {
+            color: #181818;
+            font-size: 16px;
+            padding-bottom: 10px;
+        }
+
+        .amount button {
+            width: 100px;
+            padding: 8px;
+            border: none;
+            color: white;
+            background: #b4decb;
+            border-radius: 15px;
+        }
+
+        .amount button:hover {
+            background: #12a963;
+            cursor: pointer;
+        }
+
+        /* drop-down */
+
+        .drop-down {
+            position: relative;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            box-shadow: 0 2px 2px rgba(0,0,0,0.222);
+            width: 100%;
+            padding: 0px 10px 0px 10px;
+            border-radius: 20px;
+            gap: 10px;
+        }
+
+        .drop-down .fa-user {
+            color: white;
+            background: #12a963;
+            padding: 7px;
+            border-radius: 50%;
+        }
+
+        .drop-down .fa-user:hover {
+            cursor: pointer;
+        }
+
+        .drop-down input {
+            border-top: none;
+            border-bottom: 1px solid #9c9c9c15;
+            background: transparent;
+            width: 80%;
+            margin-top: 10px;
+        }
+
+        .wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .drop-down:hover {
+            cursor: pointer;
+        }
+
+        .wrapper img {
+            height: 35px;
+            border-radius: 50%;
+        }
+
+        .list {
+            position: absolute;
+            top: 75px;
+            left: 0;
+            width: 100%;
+            max-height: 0px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.322);
+            padding: 0px;
+            overflow-y: scroll;
+            border-radius: 10px;
+            transition: all 1s;
+        }
+
+        .list.show {
+            max-height: 500px;
+        }
+
+        .list .item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 10px;
+            margin-top: 0px;
+            border-bottom: 1px solid #9c9c9c61;
+        }
+
+        .list .item:hover {
+            background-color: #12a96334;
+            cursor: pointer;
+        }
+
+        .list .item  img {
+            height: auto;
+            width: 35px;
+            border-radius: 50%;
+        }
+
+
+
+        @keyframes slider {
+            /* 0% { left: 0;}
+            20% { left: -100%;}
+            25% { left: -100%;}
+            45% { left: -200;}
+            50% { left: -200%;}
+            75% { left: -300%;}
+            80% { left: -300%;}
+            100% { left: 0%;} */
+
+            0% {left: 0%;}
+            25% {left: -100%;}
+            50% {left: -200%;}
+            75% {left: -300%;}
+            100% {left: -400%;}
+        } 
+
+        .networks .img img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+        
+    </style>
+
+    <div class="container">
+
+        <header>
+            <a href="javascript:history.back()">
+                <span><i class="fa fa-angle-left"></i></span>
+                &nbsp; Airtime
+            </a>
+
+            <a href="/" class="history">History</a>
+
+        </header>
+
+        <div class="slideshow">
+            <figure>
+                <a href="/"><img class="slide" src="image1.jpg" alt="slide 1"></a>
+
+                <a href="/"><img class="slide" src="image2.jpg" alt="slide 2"></a>
+
+                <a href="/"><img class="slide" src="image3.jpg" alt="slide 3"></a>
+
+                <a href="/"><img class="slide" src="image4.jpg" alt="slide 4"></a>
+
+                <a href="/"><img class="slide" src="image5.jpg" alt="slide 5"></a>
+            </figure>
+        </div>
+
+        <form method="post">
+
+            <div class="drop-down">
+                <div class="wrapper">
+
+                    <img src="./network_img/mtn.jpg" class="selectedImg">
+                    <i class="fa fa-sort-down"></i>
+                    
+                </div>
+                
+                <input type="number" name="number" placeholder="0XX XXXX XXXX">
+                <i class="fa fa-user"></i>
+        
+                <div class="list">
+                    
+                    <div class="item">
+                        <img src="./network_img/9mobile.jpg">
+                        <div class="text">9mobile</div>
+        
+                    </div>
+                    
+                    <div class="item">
+                        <img src="./network_img/mtn.jpg">
+                        <div class="text">MTN</div>
+        
+                    </div>
+                    
+                    <div class="item">
+                        <img src="./network_img/glo.jpg">
+                        <div class="text">GLO</div>
+        
+                    </div>
+                    
+                    <div class="item">
+                        <img src="./network_img/airtel.jpg">
+                        <div class="text">Airtel</div>
+        
+                    </div>
+                </div>
+            </div>
+
+            <div class="top-up">
+                <h6 class="top">Top up</h6>
+                <div class="box-con">
+                    <div class="box">
+                        <h6><i class="fa fa-naira-sign"></i> 1.5 Cashback</h6>
+                        <span><i class="fa fa-naira-sign"></i> 50</span>
+                        <p>pay <i class="fa fa-naira-sign"></i>50</p>
+
+                    </div>
+                    <div class="box">
+                        <h6><i class="fa fa-naira-sign"></i> 1.5 Cashback</h6>
+                        <span><i class="fa fa-naira-sign"></i> 50</span>
+                        <p>pay <i class="fa fa-naira-sign"></i>50</p>
+                    </div>
+
+                    <div class="box">
+                        <h6><i class="fa fa-naira-sign"></i> 1.5 Cashback</h6>
+                        <span><i class="fa fa-naira-sign"></i> 50</span>
+                        <p>pay <i class="fa fa-naira-sign"></i>50</p>
+                    </div>
+
+                    <div class="box">
+                        <h6><i class="fa fa-naira-sign"></i> 1.5 Cashback</h6>
+                        <span><i class="fa fa-naira-sign"></i> 50</span>
+                        <p>pay <i class="fa fa-naira-sign"></i>50</p>
+
+                    </div>
+                    <div class="box">
+                        <h6><i class="fa fa-naira-sign"></i> 1.5 Cashback</h6>
+                        <span><i class="fa fa-naira-sign"></i> 50</span>
+                        <p>pay <i class="fa fa-naira-sign"></i>50</p>
+                    </div>
+
+                    <div class="box">
+                        <h6><i class="fa fa-naira-sign"></i> 1.5 Cashback</h6>
+                        <span><i class="fa fa-naira-sign"></i> 50</span>
+                        <p>pay <i class="fa fa-naira-sign"></i>50</p>
+                    </div>
+                </div>
+
+                <div class="amount">
+                    <span><i class="fa fa-naira-sign"></i><input type="number" placeholder="50-500,000"></span>
+                    <button class="pay-btn">pay</button>
+                </div>
+            </div>
+
+                <!--Second row-->
+
+                <div class="box-con">
+                    
+                </div> 
+
+            
+        </form>
+    </div>
+
+    <script src="header.js"></script>
+    <script src="airtime.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quagga/dist/quagga.min.js"></script>
+</body>
+</html>

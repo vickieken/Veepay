@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nick Name</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="css/css/all.css">
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: sans-serif;
+            padding: 0px 0px 0px 0px;
+            background: #ececec;
+        }
+
+        .container {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            min-height: 100vh;
+            width: 100%;
+            margin: auto;
+            padding: 1px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            background: white;
+            width: 100%;
+            padding: 15px;
+            flex-flow: column;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        header .top-head .head-right-side p {
+            font-size: 25px;
+            color: black;
+            font-weight: 500;
+        }
+
+        header .top-head .head-right-side p span {
+            font-size: 11px;
+        }
+
+        header .savings-cont {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            
+        }
+
+        header .savings-cont .savings {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 90%;
+            margin-bottom: 20px;
+        }
+
+        header .savings-cont .savings h4 {
+            font-size: 17px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        header .savings-cont .savings h4:nth-child(1)::before {
+            position: absolute;
+            bottom: -5px;
+            left: 35%;
+            content: '';
+            width: 30%;
+            height: 2px;
+            border-radius: 10px;
+            background: black;
+        }
+
+        header .head-left-side .fa {
+            font-size: 12px;
+            color: black;
+        }
+
+        header .acc-bal {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        header .acc-bal .details .fa-naira-sign {
+            font-size: 12px;
+        }
+
+        header .acc-bal .fa {
+            color: black;
+            font-size: 9px;
+        }
+
+        header .acc-bal .fa:hover {
+            cursor: pointer;
+        }
+
+        header .acc-bal span {
+            color: white;
+            font-size: 10px;
+            font-weight: 300;
+            color: black;
+        }
+
+        header .acc-bal h6 {
+            margin-bottom: 10px;
+        }
+
+        header .acc-bal h4 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        header .acc-bal h4 .fa, #acc-balance {
+            font-size: 25px;
+        }
+
+        header .transaction-type {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: auto;
+            width: 60%;
+        }
+
+        header .top-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        header a {
+            font-size: 12px;
+            text-decoration: none;
+            color: #696969;
+        }
+
+        header  .fa {
+            color: #12a963;
+            font-size: 16px;
+        }
+        
+        .transaction-list {
+            width: 100%;
+            display: flex;
+            flex-flow: column;
+            gap: 15px;
+        }
+
+
+        .transaction {
+            border-radius: 15px;
+            background: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-flow: row wrap;
+            gap: 5px;
+            width: 100%;
+            padding-bottom: 100px;
+        }
+
+        .transaction .box {
+            width: 200px;
+            height: 190px;
+            display: flex;
+            flex-flow: column;
+            padding: 15px;
+            background: #c1ffe284;
+            border-radius: 10px;
+        }
+
+        .transaction .box2 {
+            width: 200px;
+            display: flex;
+            flex-flow: column;
+            padding: 15px;
+            background: #d0bdff73;
+            border-radius: 10px;
+            height: 190px;
+        }
+
+        .transaction .box3 {
+            background: #d3c1ff47;
+        }
+
+        .transaction .box4 {
+            background: #d3c1ff47;
+        }
+
+        .transaction .box5 {
+            background: #d3c1ff47;
+        }
+
+        .transaction .box6 {
+            background: #d3c1ff47;
+        }
+
+        .transaction .box7 {
+            background: #d3c1ff47;
+        }
+
+        .transaction .box .type {
+            font-size: 14px;
+        }
+
+        .transaction .box .type .fa {
+            color: #12a963;
+        }
+
+        .transaction .box2 .type .fa {
+            color: #7412a9;
+        }
+
+        .transaction .box7 .type .fa {
+            color: #7412a9;
+        }
+
+        .transaction .box3 .type .fa {
+            color: #0676fe;
+        }
+
+        .transaction .box4 .type .fa {
+            color: #f80647;
+        }
+
+        .transaction .box6 .type .fa {
+            color: #f8c006;
+        }
+
+        .transaction .box .content {
+            color: #696969;
+            font-size: 13px;
+            line-height: 1.7;
+            padding-top: 10px;
+            padding-bottom: 30px;
+        }
+
+        .transaction .box2 .content {
+            color: #696969;
+            font-size: 13px;
+            line-height: 1.7;
+            padding-top: 10px;
+            padding-bottom: 50px;
+        }
+
+        .transaction .box .amount span {
+            font-weight: 400;
+        }
+
+
+    footer {
+    width: 100%;
+    margin: auto;
+    bottom: 0;
+    padding-top: 170px;
+    position: fixed;
+    }
+
+footer ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    background: white;
+    margin: auto;
+    padding: 12px 40px 12px 40px;
+    border-radius: 10px;
+    box-shadow: -4px 2px 4px rgba(0,0,0,0.9);
+}
+
+footer ul li a {
+    text-decoration: none;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+/* footer ul li a .fa:hover, span:hover {
+    color: var(--green-bg);
+} */
+
+footer li:hover a .fa {
+    color: #12a963;
+}
+
+footer li:hover a span {
+    color: #12a963;
+}
+
+footer ul li a .fa {
+    color: #696969;
+    margin-bottom: 10px;
+}
+
+footer ul li a span {
+    font-size: 13px;
+    color: #696969;
+}
+
+    @media (max-width: 460px) {
+        .transaction .box {
+            width: 80%;
+            height: 190px;
+            display: flex;
+            flex-flow: column;
+            padding: 15px;
+            background: #c1ffe284;
+            border-radius: 10px;
+        }
+
+        .transaction .box2 {
+            width: 80%;
+            display: flex;
+            flex-flow: column;
+            padding: 15px;
+            background: #d0bdff73;
+            border-radius: 10px;
+            height: 190px;
+        }
+    }
+    </style>
+
+    <div class="container">
+
+        <header>
+           <div class="top-head">
+                <div class="head-right-side">
+                    <p>Finance <span>from BlueRidge Microfinance Bank</span></p>
+                </div>
+                
+           </div>
+
+           <div class="savings-cont">
+                <div class="savings">
+                    <h4>Savings</h4>
+                    <h4>Loan</h4>
+                </div>
+
+
+                <div class="head-left-side">
+                    <a href="settings.html">
+                        <i class="fa fa-gear"></i>
+                    </a>
+                </div>
+           </div>
+
+           <div class="acc-bal">
+                <div class="details">
+                    <h6>
+                        <span class="avail">Total Balance
+                        </span>
+                        <span>
+                            <i name="button" id="1" class="fa fa-eye"></i>
+                        </span>
+                    </h6>
+                    <h4><i class="fa fa-naira-sign"></i><span id="acc-balance">0.00</span>
+                    </h4>
+                </div>
+
+                <div class="details">
+                    <h6>
+                        <span class="avail">Total Interest
+                        </span>
+                        <span>
+                            <!-- <i name="button" id="1" class="fa fa-eye"></i> -->
+                        </span>
+                    </h6>
+                    <h4><i style="color: #12a963;" class="fa fa-naira-sign"></i><span style="color: #12a963;" id="acc-balance">0.00</span>
+                    </h4>
+                </div>
+
+            </div>
+
+        </header>
+
+            <div class="transaction-list">
+
+                <div class="transaction">
+                    <div class="box">
+                        <div class="type">
+                            <i class="fa fa-wallet"></i>
+                            Wallet
+                        </div>
+                        <div class="content">
+                            You can deposit this amount in 0Wealth and earn daily interest
+                        </div>
+                        <div class="amount">
+                            <h4><i class="fa fa-naira-sign"></i><span id="acc-balance">0.00</span>
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="box box2">
+                        <div class="type">
+                            <i class="fa fa-hand-holding-usd"></i>
+                            Wallet
+                        </div>
+                        <div class="content">
+                            You daily returns. You can withdraw at any time.
+                        </div>
+                        <div class="amount">
+                            <h4><i class="fa fa-naira-sign"></i><span id="acc-balance">0.00</span>
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="box box5">
+                        <div class="type">
+                            <i class="fa fa-shopping-bag"></i>
+                            fixed
+                        </div>
+                        <div class="content">
+                            You daily returns. You can withdraw at any time.
+                        </div>
+                    </div>
+
+                    <div class="box box6">
+                        <div class="type">
+                            <i class="fa fa-donate"></i>
+                            Spend & Save
+                        </div>
+                        <div class="content">
+                            You daily returns. You can withdraw at any time.
+                        </div>
+                    </div>
+                    <div class="box box7">
+                        <div class="type">
+                            <i class="fa fa-chart-line"></i>
+                            Savings Report
+                        </div>
+                        <div class="content">
+                            Check out your savings journey so far.
+                        </div>
+                    </div>
+                    
+                    <div class="box box3">
+                        <div class="type">
+                            <i class="fa fa-bullseye"></i>
+                            Targets
+                        </div>
+                        <div class="content">
+                            Save daily, weekly, or monthly towards your goal.
+                        </div>
+                    </div>
+
+                    <div class="box box4">
+                        <div class="type">
+                            <i class="fa fa-wallet"></i>
+                            SafeBox
+                        </div>
+                        <div class="content">
+                            You daily returns. You can withdraw at any time.
+                        </div>
+                        </div>
+                    </div>
+
+                </div>
+
+               
+            </div>
+
+        <footer>
+            <ul>
+                <li><a href="index.html"><i class="fa fa-circle-user"></i><span>Home</span></a></li>
+
+                <li><a href="rewards.html"><i class="fa fa-gift"></i><span>Reward</span></a></li>
+
+                <li><a href="finance.html"><i class="fa fa-chart-line"></i><span>Finance</span></a></li>
+
+                <li><a href="card.html"><i class="fa fa-credit-card"></i><span>Cards</span></a></li>
+
+                <li><a href="me.html"><i class="fa fa-face-grin-wide"></i><span>Me</span></a></li>
+            </ul>
+        </footer>
+
+        
+    </div>
+
+    <script src="header.js"></script>
+    <script src="me.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quagga/dist/quagga.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nick Name</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="css/css/all.css">
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: sans-serif;
+            padding: 0px 0px 0px 0px;
+            background: #ffff;
+        }
+
+        .container {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            min-height: 100vh;
+            width: 100%;
+            margin: auto;
+            padding: 1px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            background: white;
+            width: 100%;
+            padding: 15px;
+            flex-flow: column;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        header .top-head .head-right-side p {
+            font-size: 25px;
+            color: black;
+            font-weight: 500;
+        }
+
+        header .top-head .head-right-side p span {
+            font-size: 11px;
+        }
+
+        header .savings-cont .cardImg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header .savings-cont .cardImg img {
+            width: 100%;
+            height: auto;
+        }
+
+        header .savings-cont {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column;
+        }
+
+        header .savings-cont .savings {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 90%;
+            margin-bottom: 20px;
+        }
+
+        header .savings-cont .savings h4 {
+            font-size: 17px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        header .savings-cont .savings h4:nth-child(1)::before {
+            position: absolute;
+            bottom: -5px;
+            left: 35%;
+            content: '';
+            width: 30%;
+            height: 2px;
+            border-radius: 10px;
+            background: black;
+        }
+
+        header .head-left-side a {
+            font-size: 19px;
+            color: #3f12a9;
+            cursor: pointer;
+        }
+
+        header .head-left-side .fa {
+            font-size: 12px;
+            color: black;
+        }
+
+        header .head-left-side .fa {
+            font-size: 12px;
+            color: black;
+        }
+
+        header .acc-bal {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        header .acc-bal .details .fa-naira-sign {
+            font-size: 12px;
+        }
+
+        header .acc-bal .fa {
+            color: black;
+            font-size: 9px;
+        }
+
+        header .acc-bal .fa:hover {
+            cursor: pointer;
+        }
+
+        header .acc-bal span {
+            color: white;
+            font-size: 10px;
+            font-weight: 300;
+            color: black;
+        }
+
+        header .acc-bal h6 {
+            margin-bottom: 10px;
+        }
+
+        header .acc-bal h4 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        header .acc-bal h4 .fa, #acc-balance {
+            font-size: 25px;
+        }
+
+        header .transaction-type {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: auto;
+            width: 60%;
+        }
+
+        header .top-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        header a {
+            font-size: 12px;
+            text-decoration: none;
+            color: #696969;
+        }
+
+        header  .fa {
+            color: #3f12a9;
+            font-size: 16px;
+        }
+        
+        .transaction-list {
+            width: 100%;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 80px;
+        }
+
+        .transaction-list a h6, .in-out {
+            padding: 10px;
+        }
+
+        .transaction-list a {
+            color: #4a4a4a;
+            text-decoration: none;
+        }
+
+        .transaction a {
+            display: flex;
+            justify-content: 
+            space-between;
+            align-items: center;
+            padding: 5px 20px 10px 8px;
+            margin-top: 10px;
+        }
+
+        .transaction {
+            border-radius: 15px;
+            background: white;
+            padding: 5px;
+            margin-bottom: 100px;
+        }
+
+        header .first-tran {
+            position: absolute;
+            top: 75%;
+            width:95%;
+            transform: translatex(-50%);
+            left: 50%;
+            padding: 2px 20px 0px 8px;
+            display: flex;
+            justify-content: 
+            space-between;
+            align-items: center;
+            padding: 5px 20px 10px 8px;
+            border-radius: 15px;
+            background: white;
+            margin-top: 10px;
+        }
+
+        .transaction .sec-tran {
+            margin-top: 15px;
+        }
+
+        .transaction .bonus {
+            margin-top: 50px;
+            margin-left: 15px;
+            font-weight: 500;
+            font-size: 20px;
+        }
+
+        header .first-tran .transaction-details {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px;
+        }
+
+        header .first-tran .transaction-details .fa {
+            color: #3f12a9;
+            padding: 10px;
+        }
+
+        header .first-tran .transaction-details h6 {
+            display: flex;
+            flex-flow: column;
+            font-weight: lighter;
+            font-size: 10px;
+            line-height: 1.5;
+        }
+
+        header .first-tran .transaction-details h6 SPAN .fa {
+            font-size: 10px;
+        }
+
+        .transaction a .transaction-details {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .transaction a .transaction-details .fa {
+            color: #3f12a9;
+            padding: 10px;
+        }
+
+        .transaction a .transaction-details h6 {
+            display: flex;
+            flex-flow: column;
+            font-weight: 500;
+            font-size: 16px;
+            color: black;
+        }
+
+        .transaction a .transaction-details h6 span {
+            margin-top: 5px;
+            color: #242424;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .transaction a .transaction-details h6 span b {
+            margin-top: 5px;
+            color: #3f12a9;
+            font-weight: 500;
+        }
+
+        .terms {
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .transaction-list .terms input .checkbox {
+            background-color: #3f12a9;
+            border: 1px solid green;
+            cursor: pointer;
+        }
+
+        .terms b {
+            font-size: 14px;
+            color: #3f12a9;
+        }
+
+        .transaction-list .btn {
+            width: 80%;
+            padding: 8px;
+            background: #3f12a9;
+            border: none;
+            color: white;
+            border-radius: 15px;
+            cursor: pointer;
+            }
+
+
+    footer {
+    width: 100%;
+    margin: auto;
+    bottom: 0;
+    padding-top: 170px;
+    position: fixed;
+    }
+
+footer ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    background: white;
+    margin: auto;
+    padding: 12px 40px 12px 40px;
+    border-radius: 10px;
+    box-shadow: -4px 2px 4px rgba(0,0,0,0.9);
+}
+
+footer ul li a {
+    text-decoration: none;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+/* footer ul li a .fa:hover, span:hover {
+    color: var(--green-bg);
+} */
+
+footer li:hover a .fa {
+    color: #3f12a9;
+}
+
+footer li:hover a span {
+    color: #3f12a9;
+}
+
+footer ul li a .fa {
+    color: #696969;
+    margin-bottom: 10px;
+}
+
+footer ul li a span {
+    font-size: 13px;
+    color: #696969;
+}
+
+    @media (max-width: 460px) {
+        .transaction .box {
+            width: 80%;
+            height: 190px;
+            display: flex;
+            flex-flow: column;
+            padding: 15px;
+            background: #c1ffe284;
+            border-radius: 10px;
+        }
+
+        .transaction .box2 {
+            width: 80%;
+            display: flex;
+            flex-flow: column;
+            padding: 15px;
+            background: #d0bdff73;
+            border-radius: 10px;
+            height: 190px;
+        }
+    }
+    </style>
+
+    <div class="container">
+
+        <header>
+           <div class="top-head">
+                <div class="head-right-side">
+                    <p>Cards</p>
+                </div>
+                
+                <div class="head-left-side">
+                    <a href="#">
+                        Q&A
+                    </a>
+                </div>
+           </div>
+
+           <div class="savings-cont">
+                <div class="savings">
+                    <h4>Virtual Card</h4>
+                    <h4>Physical Card</h4>
+                </div>
+                <div class="cardImg">
+                    <img src="./opay card.png" alt="">
+                </div>
+           </div>
+
+        </header>
+
+            <div class="transaction-list">
+                <div class="transaction">
+
+                    <a class="sec-tran" href="#">
+
+                        <div class="transaction-details">
+                            <i class="fa fa-credit-card"></i>
+                            <h6>
+                                Instant Access
+                                <span>Apply and activate <b>Instantly</b></span>
+                            </h6>
+                        </div>
+
+                    </a>
+
+                    <a href="#">
+                        <div class="transaction-details">
+                            <i class="fa fa-lock"></i>
+                            <h6>
+                                Saftey
+                                <span><b>No</b> physical handling. <b>No</b> risk of loss</span>
+                            </h6>
+                        </div>
+
+                    </a>
+
+                    <a href="#">
+                        <div class="transaction-details">
+                            <i class="fa fa-money-check"></i>
+                            <h6>
+                                Online Merhant Acceptance
+                                <span>Accept by <b>40,000+</b> online merchants including JUMIA, KONGA, NETFLIX, UBER Wallet Funding and others</span>
+                            </h6>
+                        </div>
+                    </a>
+
+                    <a href="#">
+                        <div class="transaction-details">
+                            <i class="fa fa-shield"></i>
+                            <h6>
+                                Security
+                                <span><b>CBN</b> licensed, <b>NDIC</b> insuranced</span>
+                            </h6>
+                        </div>
+                    </a>
+
+                </div>
+               
+                <div class="terms">
+                    <input type="checkbox" id="checkbox" name="checkbox">
+                    Click the button below to accept <b>Terms & Conditions</b>
+                </div>
+
+                <button class="btn">Get It Now</button>
+            </div>
+
+        <footer>
+            <ul>
+                <li><a href="index.html"><i class="fa fa-circle-user"></i><span>Home</span></a></li>
+
+                <li><a href="rewards.html"><i class="fa fa-gift"></i><span>Reward</span></a></li>
+
+                <li><a href="finance.html"><i class="fa fa-chart-line"></i><span>Finance</span></a></li>
+
+                <li><a href="card.html"><i class="fa fa-credit-card"></i><span>Cards</span></a></li>
+
+                <li><a href="me.html"><i class="fa fa-face-grin-wide"></i><span>Me</span></a></li>
+            </ul>
+        </footer>
+
+        
+    </div>
+
+    <script src="header.js"></script>
+    <script src="me.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quagga/dist/quagga.min.js"></script>
+</body>
+</html>

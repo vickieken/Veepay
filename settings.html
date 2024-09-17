@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nick Name</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="css/css/all.css">
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: sans-serif;
+            padding: 0px 0px 0px 0px;
+            background: #ececec;
+        }
+
+        .container {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            min-height: 100vh;
+            width: 100%;
+            margin: auto;
+            padding: 1px;
+            font-weight: 500;
+        }
+
+        .container .sign-out {
+            color: darkred;
+            font-size: 12px;
+            text-decoration: none;
+            margin-top: 30px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            background: #ffff;
+            width: 100%;
+            padding: 15px;
+            flex-flow: column;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            margin-bottom: 10px;
+            margin-top: 0;
+            
+        }
+
+        header a {
+            font-size: 12px;
+            text-decoration: none;
+            color: #696969;
+            display: flex;
+        }
+
+        header  .fa {
+            color: #696969;
+            font-size: 16px;
+        }
+        
+        .transaction-list {
+            width: 100%;
+            display: flex;
+            flex-flow: column;
+            gap: 10px;
+        }
+
+        .transaction-list a h6, .in-out {
+            padding: 10px;
+        }
+
+        .transaction-list a {
+            color: #4a4a4a;
+            text-decoration: none;
+        }
+
+        .transaction-list a .date-span {
+            display: flex;
+            gap: 10px;
+            font-size: 13px;
+            align-items: center;
+        }
+
+        .transaction-list .date .in-out span {
+            font-weight: 500;
+        }
+
+        .transaction a {
+            display: flex;
+            justify-content: 
+            space-between;
+            align-items: center;
+            padding: 10px 20px 10px 10px;
+        }
+
+        .transaction {
+            border-radius: 15px;
+            background: white;
+        }
+
+        .transaction-2 {
+            border-radius: 15px;
+            background: white;
+        }
+
+        .transaction-2 a {
+            display: flex;
+            justify-content: 
+            space-between;
+            align-items: center;
+            padding: 10px 20px 10px 10px;
+        }
+
+        .transaction a .transaction-details {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .transaction-2 a .transaction-details {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .transaction a .transaction-details .fa {
+            color: #3f12a9;
+            padding: 10px;
+        }
+
+        .transaction a .transaction-details .fa-regular {
+            color: #3f12a9;
+            padding: 10px;
+        }
+
+        .transaction-2 a .transaction-details .fa {
+            color: #3f12a9;
+            padding: 10px;
+        }
+
+        .transaction-2 a .transaction-details .fa-regular {
+            color: #3f12a9;
+            padding: 10px;
+        }
+
+        .transaction a .transaction-details h6 {
+            display: flex;
+            flex-flow: column;
+            font-weight: 500;
+            font-size: 12px;
+        }
+
+        .transaction-2 a .transaction-details h6 {
+            display: flex;
+            flex-flow: column;
+            font-weight: 500;
+            font-size: 12px;
+        }
+
+        .transaction a .transaction-details h6 span {
+            margin-top: 5px;
+            color: #9c9c9c;
+        }
+
+        .transaction-2 a .transaction-details h6 span {
+            margin-top: 5px;
+            color: #9c9c9c;
+        }
+
+        .transaction-amount {
+            font-size: 15px;
+            display: flex;
+            flex-flow: column;
+            align-items: right;
+        }
+
+        .transaction-amount h5 {
+            font-weight: 500;
+        }
+
+        .transaction-amount h6 {
+            font-weight: 500;
+            color: #3f12a9;
+            text-align: right;
+        }
+
+    footer {
+    width: 550px;
+    margin: auto;
+    bottom: 0;
+    padding-top: 170px;
+    }
+
+footer ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    background: white;
+    margin: auto;
+    padding: 12px 40px 12px 40px;
+    border-radius: 10px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+/* footer ul li a .fa:hover, span:hover {
+    color: var(--green-bg);
+} */
+
+footer li:hover a .fa {
+    color: #3f12a9;
+}
+
+footer li:hover a span {
+    color: #3f12a9;
+}
+
+footer ul li a .fa {
+    color: #696969;
+    margin-bottom: 10px;
+}
+
+footer ul li a span {
+    font-size: 13px;
+    color: #696969;
+}
+    </style>
+
+    <div class="container">
+
+        <header>
+            <div class="top-head">
+                <a href="me.html">
+                    <span><i class="fa fa-angle-left"></i></span>
+                    &nbsp; Settings
+                </a>
+            </div>
+        </header>
+
+        <div class="transaction-list">
+
+                <div class="transaction">
+                    <a href="login-settings.html">
+                        <div class="transaction-details">
+                            <i class="fa fa-key"></i>
+                            <h6>
+                                Login Settings
+                            </h6>
+                        </div>
+
+                        <div class="transaction-amount">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </a>
+
+                    <a href="pin-setup.html">
+                        <div class="transaction-details">
+                            <i class="fa fa-lock"></i>
+                            <h6>
+                                payment Settings
+                            </h6>
+                        </div>
+
+                        <div class="transaction-amount">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </a>
+
+                    <a href="#">
+                        <div class="transaction-details">
+                            <i class="fa fa-shield"></i>
+                            <h6>
+                                Security Questions
+                            </h6>
+                        </div>
+
+                        <div class="transaction-amount">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </a>
+
+                </div>
+
+                <div class="transaction-2">
+                    <a href="#">
+                        <div class="transaction-details">
+                            <i class="fa-regular fa-hdd"></i>
+                            <h6>
+                                Savings Settings
+                            </h6>
+                        </div>
+
+                        <div class="transaction-amount">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </a>
+
+                    <a href="#">
+                        <div class="transaction-details">
+                            <i class="fa fa-comment-sms"></i>
+                            <h6>
+                                Sms Alert Subscription
+                            </h6>
+                        </div>
+
+                        <div class="transaction-amount">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </a>
+
+                </div>
+
+                <div class="transaction-2">
+                    <a href="#">
+                        <div class="transaction-details">
+                            <i class="fa fa-power-off"></i>
+                            <h6>
+                                Close Account
+                            </h6>
+                        </div>
+
+                        <div class="transaction-amount">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </a>
+
+                </div>
+
+                <div class="transaction-2">
+                    <a href="about-site.html">
+                        <div class="transaction-details">
+                            <i class="fa fa-circle-exclamation"></i>
+                            <h6>
+                                About
+                            </h6>
+                        </div>
+
+                        <div class="transaction-amount">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </a>
+
+                </div>
+        </div>
+
+        <a href="#" class="sign-out">
+            Sign out
+        </a>
+
+        
+    </div>
+
+    <script src="header.js"></script>
+    <script src="me.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quagga/dist/quagga.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nick Name</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="css/css/all.css">
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: sans-serif;
+            padding: 0px 0px 0px 0px;
+            background: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            min-height: 100vh;
+            width: 100%;
+            margin: auto;
+            padding: 10px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            background: white;
+            width: 100%;
+            padding: 15px;
+            flex-flow: column;
+        }
+
+        header .transaction-type {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: auto;
+            width: 60%;
+        }
+
+        header .top-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 0px;
+        }
+
+        header .transaction-type h6  {
+            color: #9c9c9c;
+            font-size: 10px;
+        }
+
+        header .transaction-type .fa {
+            color: #9c9c9c;
+            font-size: 12px;
+        }
+
+        header a {
+            font-size: 12px;
+            text-decoration: none;
+            color: #696969;
+            display: flex;
+        }
+
+        header  .fa {
+            color: #3f12a9;
+            font-size: 16px;
+        }
+        
+        .transaction-list {
+            margin-top: 10px;
+            width: 100%;
+            background: white;
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            flex-flow: column;
+        }
+
+        .transaction-list .transaction-amount {
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .transaction-list .success {
+            padding-left: 5px;
+            padding-right: 5px;
+            width: 100%;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            padding-bottom: 10px;
+        }
+
+        .transaction-list .success .green {
+            color: #3f12a9;
+            padding-bottom: 12px;
+            font-weight: 200;
+        }
+
+        .transaction-list .success .success-process {
+            width: 100%;
+        }
+
+        .transaction-list .success .success-process .success-proccess-line {
+            display: flex;
+            justify-content: space-between;
+            flex-flow: row;
+            width: 100%;
+        }
+
+        .transaction-list .success .success-process .success-proccess-line .process {
+            display: flex;
+            flex-flow: column;
+            text-align: center;
+        }
+
+        .transaction-list .success .success-process .success-proccess-line .process .fa {
+            font-size: 12px;
+            color: #3f12a9;
+            padding-bottom: 8px;
+            position: relative;
+        }
+
+        /* .transaction-list .success .success-process .success-proccess-line .process .fa .line {
+            position: relative;
+        }
+
+        .transaction-list .success .success-process .success-proccess-line .process .fa .line::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -20px;
+            width: 60%;
+            height: 1px;
+            background: #3f12a9;
+        } */
+
+        .transaction-list .success .success-process .success-proccess-line .process span {
+            font-size: 12px;
+            font-weight: 400;
+            padding-bottom: 2px;
+        }
+
+        .transaction-list .success .success-process .success-proccess-line .process .process-time {
+            padding-top: 4px;
+            color: #696969;
+        }
+
+        /* success note */
+        .transaction-list .success-note {
+            background: #e9e9e9;
+            padding: 13px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .transaction-list .success-note h5 {
+            font-weight: 400;
+            color: #696969;
+            text-align: start;
+            font-size: 11px;
+        }
+
+         /* success amount */
+         .transaction-list .success-amount {
+            display: flex;
+            flex-flow: column;
+         }
+
+         .transaction-list .success-amount .details {
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+            padding-top: 10px;
+         }
+
+         .transaction-list .success-amount .details h5 {
+            font-size: 13px;
+            color: #696969;
+            font-weight: 400;
+         }
+
+         .transaction-list .success-amount .details .amount-detail {
+            font-size: 13px;
+         }
+
+         /* Transaction Details */
+         .transact-detail {
+            margin-top: 10px;
+            width: 100%;
+            background: white;
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            flex-flow: column;
+        }
+
+        .transact-detail .trans {
+            font-weight: 600;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .transact-detail .details {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 10px;
+        }
+
+        .transact-detail .details h5 {
+            font-weight: 400;
+            color: #696969;
+        }
+
+        .transact-detail .details .recipient-detail {
+            font-size: 14px;
+            display: flex;
+            flex-flow: column;
+            align-items: end;
+        }
+
+        .transact-detail .details .recipient-detail span .fa {
+            font-size: 8px;
+            color: #3f12a9;
+        }
+
+        /* receipt */
+        .container .receipt {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px;
+            padding-top: 50px;
+        }
+
+        .container .receipt .receipt-btn-1 a {
+            padding: 5px 30px 5px 30px;
+            border: 1px solid #3f12a9;
+            border-radius: 20px;
+            color: #3f12a9;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .container .receipt .receipt-btn-2 a {
+            padding: 5px 30px 5px 30px;
+            background: #3f12a9;
+            border-radius: 20px;
+            color: #ffff;
+            text-decoration: none;
+            font-size: 13px;
+        }
+    </style>
+
+    <div class="container">
+
+        <header>
+            <div class="top-head">
+                <a class="go-back" href="javascript:history.back()">
+                    <span><i class="fa fa-angle-left"></i></span>
+                    &nbsp; Transaction Details
+                </a>
+    
+                <a href="#" class="history"><i class="fa fa-cloud-arrow-down"></i></a>
+            </div>
+
+        </header>
+
+        <div class="transaction-list">
+            <div class="transaction-amount">
+                <h2> - <i class="fa fa-naira-sign"></i>3,000.00</h2>
+            </div>
+
+            <!--Success part-->
+            <div class="success">
+                <span class="green" c>Successful</span>
+
+                <div class="success-process">
+                    <div class="success-proccess-line">
+                        <div class="process">
+                            <i class="fa fa-check-circle line"></i>
+                            <span>Payment</span>
+                            <span>Successful</span>
+                            <span class="process-time">05-30 10:47:39</span>
+                        </div>
+
+                        <div class="process">
+                            <i class="fa fa-check-circle line"></i>
+                            <span>Processing</span>
+                            <span>by bank</span>
+                            <span class="process-time">05-30 10:47:39</span>
+                        </div>
+
+                        <div class="process">
+                            <i class="fa fa-check-circle"></i>
+                            <span>Recieved</span>
+                            <span>by bank</span>
+                            <span class="process-time">05-30 10:47:39</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--success notification-->
+            <div class="success-note">
+                <h5>The recipient account is expected to be credited within 5 minutes, subject to notification by the bank</h5>
+            </div>
+
+            <!--success amount-->
+            <div class="success-amount">
+                <div class="details">
+                    <h5>Amount</h5>
+                    <div class="amount-detail">
+                        <span> <i class="fa fa-naira-sign"></i>3,000.00</span>
+                    </div>
+                </div>
+                <div class="details">
+                    <h5>Fee</h5>
+                    <div class="amount-detail">
+                        <span> <i class="fa fa-naira-sign"></i>3,000</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--Transcation Details-->
+        <div class="transact-detail">
+            <span class="trans">Transction Details</span>
+
+            <div class="details">
+                <h5>Recipient Details</h5>
+                <div class="recipient-detail">
+                    <span>Peter John May</span>
+                    <span>Palmpay | 80468973837</span>
+                </div>
+            </div>
+
+            <div class="details">
+                <h5>Transaction Type</h5>
+                <div class="recipient-detail">
+                    <span>Transfer to Bank Account</span>
+                </div>
+            </div>
+
+            <div class="details">
+                <h5>Transaction Number</h5>
+                <div class="recipient-detail">
+                    <span>2405320378329872407240 <i class="fa fa-copy"></i></span>
+                </div>
+            </div>
+
+            <div class="details">
+                <h5>Payment Method</h5>
+                <div class="recipient-detail">
+                    <span>Wallet</span>
+                </div>
+            </div>
+
+            <div class="details">
+                <h5>Transaction Date</h5>
+                <div class="recipient-detail">
+                    <span>May 30th, 2024 10:47:39</span>
+                </div>
+            </div>
+
+            <div class="details">
+                <h5>SessionID</h5>
+                <div class="recipient-detail">
+                    <span>10000238698938508757850975 <i class="fa fa-copy"></i></span>
+                </div>
+            </div>
+        </div>
+
+        <!--More Actions-->
+        <div class="transact-detail">
+            <span class="trans">Transction Details</span>
+
+            <div class="details">
+                <h5>Choose Category</h5>
+                <div class="recipient-detail">
+                    <span>Transfer <i class="fa fa-angle-right"></i></span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="receipt">
+            <div class="receipt-btn-1">
+                <a href="/">Report an issue</a>
+            </div>
+
+            <div class="receipt-btn-2">
+                <a href="/">Share Receipt</a>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <script src="header.js"></script>
+    <script src="electricity.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quagga/dist/quagga.min.js"></script>
+    <script>
+        const backEl = document.queryselector(".go-back");
+
+        backEl.addeventlistener("click", ()=> {
+            window.history.back();
+            console.log("yes ")
+        })
+        
+    </script>
+</body>
+</html>
