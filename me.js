@@ -20,3 +20,15 @@ eyeBtn.addEventListener("click", ()=> {
     }
 })
 
+window.addEventListener('load', ()=> {
+    const preload = document.querySelector('.pre-div');
+  
+    preload.classList.add("pre-div-hidden");
+  
+    preload.addEventListener('transitionend', ()=> {
+        document.body.removeChild(preload);
+    })
+
+    console.log(preload)
+  })
+

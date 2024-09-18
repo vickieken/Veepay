@@ -9,6 +9,16 @@ var id=document.getElementsByName("button")[0].id;
 console.log(icons);
 
 document.addEventListener('DOMContentLoaded', function () {
+    // window.addEventListener('load', ()=> {
+    //     const preload = document.querySelector('.pre-div');
+    
+    //     preload.classList.add("pre-div-hidden");
+    
+    //     preload.addEventListener('transitionend', ()=> {
+    //         document.body.removeChild('.pre-div');
+    //     })
+    // })
+    
     const icons = 
     document.querySelectorAll('.icon');
     let currentIcon = null;
@@ -39,5 +49,5 @@ eyeBtn.addEventListener("click", ()=> {
         document.getElementsByName("button")[0].id=1;
         console.log("toggled");
     }
-})
+});
 
