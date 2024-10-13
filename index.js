@@ -39,14 +39,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 eyeBtn.addEventListener("click", ()=> {
     var id=document.getElementsByName("button")[0].id;
-    if(id==1)
+    if(id==0)
     {
-        document.querySelector("#acc-balance").innerHTML = "0.00";
-        document.getElementsByName("button")[0].id=0;
+        document.querySelector("#acc-balance").innerHTML = "250,000,000.00";
+        document.getElementsByName("button")[0].id=1;
         console.log("clicked");
     } else {
         document.querySelector("#acc-balance").innerHTML = "******";
-        document.getElementsByName("button")[0].id=1;
+        document.getElementsByName("button")[0].id=0;
         console.log("toggled");
     }
 });
